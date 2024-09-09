@@ -1,0 +1,106 @@
+*{
+    overflow-x: hidden;
+    
+}
+
+
+.HeaderLogo {
+    height: 44px ;
+    width: 44px;
+}
+
+.HeaderLinks{
+    font-weight: 800;
+    font-size: larger;
+}
+
+.navbar{
+    height: 50px;
+}
+
+.parentDiv{
+    vertical-align: middle;
+}
+
+.InputSearch{
+width: 300px;
+height: 40px;
+margin-right: 10px;
+border-radius: 10px;
+border: solid 1px rgb(145, 144, 144);
+font-size: 13px;
+padding: 13px;
+}
+
+.SearchBtn{
+border: none;
+height: 40px;
+width: 80px;
+border-radius: 10px;
+padding: 4px;
+}
+
+.TotalDiv{
+    border: solid black 1px;
+    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    /* width: 300px; */
+}
+.TableDiv1{
+    scrollbar-width: none;
+    border-radius: 10px; 
+}
+
+.TableDiv{
+    border: solid 1px rgba(105, 104, 104, 0.39);
+    margin-left: 40px;
+    margin-right: 40px;
+    border-radius: 10px;
+    scrollbar-width: none;
+
+}
+.concentRow{
+    scrollbar-width: none;
+text-decoration: underline; 
+color: rgb(222, 207, 227);
+text-decoration-color: rgb(17, 0, 0);
+}
+
+.table{
+    padding: 10px;
+}
+
+.countDiv{
+    text-align: center;
+    font-weight: 700;
+    font-size:30px ;
+}
+
+.tableHead{
+    font-size: 13px;
+    text-align: start;
+    margin-left: 10px;
+}
+
+.cardTitle{
+    color: black;
+    font-size:13px;
+}
+
+span{
+    font-weight: 600;
+}
+
+/* div.container{
+   
+    padding: 7px;
+} */
+
+li:hover{
+    text-decoration: underline;
+}
+li:active{
+    background-color: green;
+}
