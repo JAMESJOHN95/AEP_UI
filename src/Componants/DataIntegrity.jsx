@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css'
 import axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
 
 function DataIntegrity({ token }) {
     const [dataset, setDataset] = useState([])
 
     // Pagenation 
     const [currentPage, setCurrentPage] = useState(1);
-    const recordsPerPage = 10;
+    const recordsPerPage = 20;
     const lastIndex = currentPage * recordsPerPage;
     const firstIndex = lastIndex - recordsPerPage;
     const records = dataset.slice(firstIndex, lastIndex);
@@ -93,7 +94,8 @@ function DataIntegrity({ token }) {
                                 </tr>
                             ))
                                 :
-                                (<tr>No Data To Show</tr>)
+                                (<div className='p-3 text-center bg-warning'   ><tr >
+                                    <Spinner animation="border" size="sm" /></tr></div>)
                             }
 
                         </tbody>
@@ -101,28 +103,33 @@ function DataIntegrity({ token }) {
                     </table>
                   
                         <div className='text-center '>
-                            <ul className='d-flex'>
-                                <li className='page-item border p-1 ms-1 me-1 rounded'>
-                                    <a href="#" className='page-link' onClick={prePage}>
-                                        Prev
-                                    </a>
-                                </li>
+                            <ul className='d-flex justify-content-center align-items-center'>
+                               <div className= 'page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded d-flex align-items-center'>
+                                    <li >
+                                        {/* <a href="#" className='page-link' onClick={prePage}> */}
+                                        <i onClick={prePage}  class="fa-solid fa-backward d-inline-flex"></i>
+                                        {/* </a> */}
+                                    </li>
+                               </div>
                                 {
                                     number.map((n, index) => (
-                                        <li className={`page-item ${currentPage === n ? "active" : ''} border p-1 ms-1 me-1 rounded`} key={index}>
-                                            <a href="#" className='page-link' onClick={() => changeCurrentPage(n)}>{n
-                                            }</a>
-                                        </li>
+                                        <div  className=' page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded '>
+                                            <li className={` ${currentPage === n ? "active" : ''} `} key={index}>
+                                                <a href="#" className='page-link fw-bolder' onClick={() => changeCurrentPage(n)}>{n
+                                                }</a>
+                                            </li>
+                                        </div>
                                     ))
                                 }
-                                <li className='page-item border p-1 ms-1 me-1 rounded   '>
-                                    <a href="#" className='page-link' onClick={nextPage}>
-                                        Next
-                                    </a>
-                                </li>
+                                <div className='page-item border p-1 ps-2 pe-2  ms-1 me-1 rounded d-flex align-items-center '>
+                                    <li className='' >
+                                        {/* <a href="#" className='page-link' onClick={nextPage}> */}
+                                        <i onClick={nextPage} class="fa-solid fa-forward d-inline-flex"></i>
+                                        {/* </a> */}
+                                    </li>
+                                </div>
                             </ul>
                         </div>
-                  
                 </div>
             </>
         )

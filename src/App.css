@@ -1,5 +1,6 @@
 *{
     overflow-x: hidden;
+    font-family: "Work Sans", sans-serif;
     
 }
 
@@ -16,6 +17,7 @@
 
 .navbar{
     height: 50px;
+    scrollbar-width: none;
 }
 
 .parentDiv{
@@ -38,6 +40,14 @@ height: 40px;
 width: 80px;
 border-radius: 10px;
 padding: 4px;
+}
+
+.journeyTable{
+    scrollbar-width: none;
+}
+
+.audienceTable{
+    scrollbar-width: none;
 }
 
 .TotalDiv{
@@ -101,6 +111,16 @@ span{
 li:hover{
     text-decoration: underline;
 }
-li:active{
+/* li:active{
     background-color: green;
+} */
+.page-item.active{
+    background-color:rgb(97, 53, 179)
+}
+
+.templateimg{
+height : 50px;
+}
+.questlogo{
+    height: 40px;
 }

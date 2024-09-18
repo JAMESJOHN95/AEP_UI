@@ -15,10 +15,10 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto w-50 justify-content-around">
-              <Nav.Link className='HeaderLinks' href="#home">Home</Nav.Link>
-              <Nav.Link className='HeaderLinks' href="#link">Testing</Nav.Link>
-              <Nav.Link className='HeaderLinks' href="#logout">Logout</Nav.Link>
-              <Nav.Link className='HeaderLinks' href="#user"><i class="fa-regular fa-user"></i> User</Nav.Link>
+              <Nav.Link className='HeaderLinks fw-bolder' href="#home">Home</Nav.Link>
+              <Nav.Link className='HeaderLinks fw-bolder' href="#link">Testing</Nav.Link>
+              <Nav.Link className='HeaderLinks fw-bolder' href="#logout">Logout</Nav.Link>
+              <Nav.Link className='HeaderLinks fw-bolder' href="#user"><i class="fa-regular fa-user d-inline-flex"></i> User</Nav.Link>
 
             </Nav>
           </Navbar.Collapse>

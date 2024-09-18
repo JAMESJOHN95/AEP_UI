@@ -3,6 +3,7 @@ import { Nav } from 'react-bootstrap'
 import Profile from './Profile';
 import AudienceIntegrity from './AudienceIntegrity';
 import JourneyIntegrity from './JourneyIntegrity';
+import MetricIntegrity from './MetricIntegrity';
 
 
 function ProfileIntegrity({ token,clpId,}) { 
@@ -44,6 +45,9 @@ console.log(audienceDta);
 {active === 'link-1' && (<AudienceIntegrity clpId = {clpId} token = {token} audienceData = {audienceDta} />)
 }
 {active === 'link-2' && (<JourneyIntegrity clpId = {clpId} token = {token} audienceData = {audienceDta} />)
+}
+{active === 'link-3' && (<MetricIntegrity/>)
+
 }
             </div>
 

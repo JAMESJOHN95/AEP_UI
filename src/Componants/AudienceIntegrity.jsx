@@ -81,7 +81,7 @@ function AudienceIntegrity({token,clpId,audienceData}) {
 
   return (
     <>
-    <div className='w-full overflow-scroll'>
+    <div className='w-full overflow-scroll scrollbar-hide audienceTable'>
                             <table className='table table-responsive table-striped border p-2 mt-3'>
                                 <thead>
                                     <tr>
