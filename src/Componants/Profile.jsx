@@ -88,7 +88,7 @@ function Profile({ clpId, token, onAudienceData }) {
 
 
 
-    // console.log(entities);
+    console.log(entities);
     console.log(audiance);
     console.log(questrade);
 

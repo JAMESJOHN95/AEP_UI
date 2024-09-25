@@ -3,10 +3,18 @@ import Quest from '../Images/Questrade.svg'
 import documentimg from '../Images/document.png'
 import investing from '../Images/grow.avif'
 
-function FourDayNudgeSubmitted() {
+function FourDayNudgeSubmitted({dataset}) {
   return (
     <>
     <div>
+        {dataset.template &&  (
+           <div 
+           dangerouslySetInnerHTML={{__html:dataset.template}}/>
+        )
+
+        }
+    </div>
+    {/* <div>
         <div className='templateimg'>
             <img className='questlogo' src={Quest} alt="" />
         </div>
@@ -29,7 +37,7 @@ function FourDayNudgeSubmitted() {
             <p className='ms-2'>Start Investing For Your Future</p>
         </div>
         <button className='btn btn-success mt-2 ms-3'> Finish Your Account</button>
-    </div>
+    </div> */}
     </>
   )
 }

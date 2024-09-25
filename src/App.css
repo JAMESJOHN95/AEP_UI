@@ -28,7 +28,7 @@
 width: 300px;
 height: 40px;
 margin-right: 10px;
-border-radius: 10px;
+border-radius: 30px;
 border: solid 1px rgb(145, 144, 144);
 font-size: 13px;
 padding: 13px;
@@ -38,7 +38,7 @@ padding: 13px;
 border: none;
 height: 40px;
 width: 80px;
-border-radius: 10px;
+border-radius: 30px;
 padding: 4px;
 }
 
@@ -124,3 +124,57 @@ height : 50px;
 .questlogo{
     height: 40px;
 }
+
+input.inputBox {
+    width: 300px;
+    font-size: 17px;
+    padding: 5px 8px 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #666;
+  }
+  
+  .inputContainer {
+    display: inline-block;
+    position: relative;
+  }
+  .react-date-range__input {
+    overflow: hidden;
+} 
+  .calendarElement {
+    border: 1px solid #ccc;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    max-height: none;
+  }
+
+  .calenderElement::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+  .react-date-range__month {
+    max-height: 100%; /* Ensure the calendar fits in the modal */
+    overflow: hidden; /* Hide overflow to remove scroll */
+  }
+  
+  .react-date-range__calendar {
+    max-width: 100%; /* Fit the calendar content within the modal */
+    overflow: hidden; /* Hide overflow to remove scroll */
+  }
+  
+  .personaLabel{
+    display: block;
+  }
+  .personaInput{
+    display: block;
+    width: 270px;
+    border-radius:7px;
+    margin-bottom: 7px;
+  }
+   
+  .modalDateRange{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .rdrDayNumber{
+    scrollbar-width: none;
+  }

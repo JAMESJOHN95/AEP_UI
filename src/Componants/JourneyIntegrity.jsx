@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FourDayNudgeSubmitted from './FourDayNudgeSubmitted';
 
-function JourneyIntegrity({ clpId, token, audienceData }) {
+function JourneyIntegrity({ clpId, token }) {
 
     const [dataset, setDataset] = useState([])                                              // Api datas
     const [filteredMetric, setFilteredMetric] = useState([])                                // filtered state
@@ -54,15 +54,12 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
 
     console.log(decryptedMetric);
     console.log(filteredMetric);
-
-
-
     const getAllDatasetsForJourneyIntegrity = async () => {
         console.log("Inside Get All Dataset");
         if (!token) {
             alert("Token is not Available")
         }
-        const id = "66c82839b614f62aee2680f2"
+        const id = "66f3d7fc1787442aee072fc9"  // "66c82839b614f62aee2680f2" 
         const URL = `https://platform.adobe.io/data/foundation/export/datasets/${id}/preview`
 
         try {
@@ -90,6 +87,8 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
         }
     }
     console.log(dataset);
+    console.log(dataset.template);
+    
 
     // -------------------------------------------------------- Get all email templates -------------------------------------------------------//
 
@@ -122,6 +121,8 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
     }
 
     console.log(allMailTemplates);
+    console.log(decryptedMetric);
+    
 
     // const compareActionName = (selectedAction,allMailTemplates) =>{
     //     if(selectedAction.actionname === allmai)
@@ -138,8 +139,6 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
                             <th>Action Name</th>
                             <th>Status</th>
                             <th>TimeStamp</th>
-
-
                         </tr>
                     </thead>
 
@@ -160,7 +159,7 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
                                 </tr>
                             ))
                         ) : (
-                            <tr></tr>
+                            <tr>No Dat to Show</tr>
                         )}
 
                     </tbody>
@@ -180,7 +179,7 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
                     <Modal.Title>{selectedAction?.actionname}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className='modalbody'>
-                    <FourDayNudgeSubmitted />
+                    <FourDayNudgeSubmitted dataset = {dataset} />
                 </Modal.Body>
                 <Modal.Footer className='modalbody'>
                     <Button variant="secondary" onClick={handleClose}>
@@ -188,10 +187,6 @@ function JourneyIntegrity({ clpId, token, audienceData }) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
-
-
-
         </>
     )
 }

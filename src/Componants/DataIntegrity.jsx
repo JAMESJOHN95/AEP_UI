@@ -94,8 +94,8 @@ function DataIntegrity({ token }) {
                                 </tr>
                             ))
                                 :
-                                (<div className='p-3 text-center bg-warning'   ><tr >
-                                    <Spinner animation="border" size="sm" /></tr></div>)
+                                (<div className='p-3 text-center w-100'   >
+                                    Loading...<Spinner animation="border" size="sm" /></div>)
                             }
 
                         </tbody>
