@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../App.css'
 import Card from 'react-bootstrap/Card';
+import axios from 'axios';
 
 function Profile({ clpId, token, onAudienceData }) {
 
@@ -35,10 +36,10 @@ function Profile({ clpId, token, onAudienceData }) {
             if (!token) {
                 throw new Error('Access Token not Genrated');
             }
-
             const URL = `https://platform.adobe.io/data/core/ups/access/entities?${params.toString()}`;
 
             const response = await fetch(URL, {
+               
                 headers: {
                     'Accept': 'application/json',
                     'Authorization': `Bearer ${token}`,
@@ -86,14 +87,9 @@ function Profile({ clpId, token, onAudienceData }) {
 
     console.log(filteredConcent);
 
-
-
     console.log(entities);
     console.log(audiance);
     console.log(questrade);
-
-   
-
     return (
         <>
             <div className='TableDiv1 w-full overflow-scroll'>

@@ -62,14 +62,13 @@ function DateRange() {
             <div className='inputContainer'>
                 <input
                     type="text"
-                    className='inputBox'
+                    className='inputBox w-100 '
                     // onClick={() => {
                     //     setOpen(open => !open)
                     //     console.log("Open State : ", !open);
 
                     // }}
                     onClick={handleShow}
-
                     readOnly
                     value={`${format(range.startDate, "dd/MM/yyyy")} to ${format(range.endDate, "dd/MM/yyyy")}`}
                     placeholder={!range.startDate && !range.endDate ? 'Enter the Date Range' : ''}

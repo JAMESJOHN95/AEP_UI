@@ -3,7 +3,7 @@ import '../App.css'
 import axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 
-function DataIntegrity({ token }) {
+function DataIntegrity({ token,shareSelectedDataToDashboard }) {
     const [dataset, setDataset] = useState([])
 
     // Pagenation 
@@ -14,6 +14,14 @@ function DataIntegrity({ token }) {
     const records = dataset.slice(firstIndex, lastIndex);
     const nPage = Math.ceil(dataset.length / recordsPerPage);
     const number = [...Array(nPage + 1).keys()].slice(1)
+    const [selectedData, setSelectedData] = useState(null)
+
+    
+    useEffect(()=>{
+        if(selectedData){
+            shareSelectedDataToDashboard(selectedData)
+        }
+    },[selectedData,shareSelectedDataToDashboard])
 
     console.log(token);
 
@@ -62,78 +70,79 @@ function DataIntegrity({ token }) {
     function nextPage() {
         if (currentPage !== lastIndex) {
             setCurrentPage(currentPage + 1)
-        }}
-        function changeCurrentPage(id) {
-            setCurrentPage(id)
         }
-
-
-        return (
-            <>
-                <div className='TableDiv p-2 mb-4 w-full overflow-scroll'>
-                    <table className='table table-responsive'>
-                        <thead>
-                            <tr>
-                                <th>Sl.No</th>
-                                <th>User Profile Id</th>
-                                <th>Name</th>
-                                <th>TimeStamp</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {records.length > 0 ? records.map((item, index) => (
-                                <tr key={index} >
-                                    <td className=' tableHead'>{index + 1}</td>
-                                    <td className=' tableHead'>{item['_questrade.clpID'] || '-'}</td>
-                                    <td className=' tableHead'>{item['person.name.firstName'] || '-'}</td>
-                                    <td className=' tableHead'>{item['_questrade.updatedTimestamp'] || '-'}</td>
-                                    <td className=' tableHead'>{item['_questrade.email'] || '-'}</td>
-                                    <td className=' tableHead'>{item['mobilePhone.number'] || '-'}</td>
-                                </tr>
-                            ))
-                                :
-                                (<div className='p-3 text-center w-100'   >
-                                    Loading...<Spinner animation="border" size="sm" /></div>)
-                            }
-
-                        </tbody>
-
-                    </table>
-                  
-                        <div className='text-center '>
-                            <ul className='d-flex justify-content-center align-items-center'>
-                               <div className= 'page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded d-flex align-items-center'>
-                                    <li >
-                                        {/* <a href="#" className='page-link' onClick={prePage}> */}
-                                        <i onClick={prePage}  class="fa-solid fa-backward d-inline-flex"></i>
-                                        {/* </a> */}
-                                    </li>
-                               </div>
-                                {
-                                    number.map((n, index) => (
-                                        <div  className=' page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded '>
-                                            <li className={` ${currentPage === n ? "active" : ''} `} key={index}>
-                                                <a href="#" className='page-link fw-bolder' onClick={() => changeCurrentPage(n)}>{n
-                                                }</a>
-                                            </li>
-                                        </div>
-                                    ))
-                                }
-                                <div className='page-item border p-1 ps-2 pe-2  ms-1 me-1 rounded d-flex align-items-center '>
-                                    <li className='' >
-                                        {/* <a href="#" className='page-link' onClick={nextPage}> */}
-                                        <i onClick={nextPage} class="fa-solid fa-forward d-inline-flex"></i>
-                                        {/* </a> */}
-                                    </li>
-                                </div>
-                            </ul>
-                        </div>
-                </div>
-            </>
-        )
+    }
+    function changeCurrentPage(id) {
+        setCurrentPage(id)
     }
 
+    const handleRowClick = (item)=>{
+        setSelectedData(item)
+    }
+    console.log(selectedData);
+    
 
-    export default DataIntegrity
+    return (
+        <>
+            <div className='TableDiv p-2 mb-4 w-full overflow-scroll'>
+                <table className='table table-responsive'>
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>User Profile Id</th>
+                            <th>Name</th>
+                            <th>TimeStamp</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {records.length > 0 ? records.map((item, index) => (
+                            <tr key={index} onClick={() => handleRowClick(item)} className='dataTableRow' style={{ cursor: "pointer"  }}>
+                                <td className=' tableHead'>{index + 1}</td>
+                                <td className=' tableHead'>{item['_questrade.clpID'] || '-'}</td>
+                                <td className=' tableHead'>{item['person.name.firstName'] || '-'}</td>
+                                <td className=' tableHead'>{item['_questrade.updatedTimestamp'] || '-'}</td>
+                                <td className=' tableHead'>{item['_questrade.email'] || '-'}</td>
+                                <td className=' tableHead'>{item['mobilePhone.number'] || '-'}</td>
+                            </tr>
+                        ))
+                            :
+                            (<div className='p-3 text-center w-100'   >
+                                Loading...<Spinner animation="border" size="sm" /></div>)
+                        }
+                    </tbody>
+                </table>
+                <div className='text-center '>
+                    <ul className='d-flex justify-content-center align-items-center'>
+                        <div className='page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded d-flex align-items-center'>
+                            <li >
+                                {/* <a href="#" className='page-link' onClick={prePage}> */}
+                                <i onClick={prePage} class="fa-solid fa-backward d-inline-flex"></i>
+                                {/* </a> */}
+                            </li>
+                        </div>
+                        {
+                            number.map((n, index) => (
+                                <div className=' page-item border p-1 ps-2 pe-2 ms-1 me-1 rounded '>
+                                    <li className={` ${currentPage === n ? "active" : ''} `} key={index}>
+                                        <a href="#" className='page-link fw-bolder' onClick={() => changeCurrentPage(n)}>{n
+                                        }</a>
+                                    </li>
+                                </div>
+                            ))
+                        }
+                        <div className='page-item border p-1 ps-2 pe-2  ms-1 me-1 rounded d-flex align-items-center '>
+                            <li className='' >
+                                {/* <a href="#" className='page-link' onClick={nextPage}> */}
+                                <i onClick={nextPage} class="fa-solid fa-forward d-inline-flex"></i>
+                                {/* </a> */}
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
+export default DataIntegrity

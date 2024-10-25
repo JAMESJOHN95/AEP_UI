@@ -51,7 +51,7 @@ padding: 4px;
 }
 
 .TotalDiv{
-    border: solid black 1px;
+    /* border: solid black 1px; */
     padding: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -178,3 +178,15 @@ input.inputBox {
   .rdrDayNumber{
     scrollbar-width: none;
   }
+
+  .page-item-active{
+    background-color:rgb(203, 203, 203);
+    color: rgb(17, 17, 17);
+    font-weight: 700;
+  }
+  .page-item{
+    color: rgb(17, 17, 17);
+    font-weight: 700;
+  }
+
+  

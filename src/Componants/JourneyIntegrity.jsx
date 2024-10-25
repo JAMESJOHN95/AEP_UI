@@ -59,7 +59,7 @@ function JourneyIntegrity({ clpId, token }) {
         if (!token) {
             alert("Token is not Available")
         }
-        const id = "66f3d7fc1787442aee072fc9"  // "66c82839b614f62aee2680f2" 
+        const id = "66c82839b614f62aee2680f2"  // "66c82839b614f62aee2680f2" 
         const URL = `https://platform.adobe.io/data/foundation/export/datasets/${id}/preview`
 
         try {
@@ -87,7 +87,7 @@ function JourneyIntegrity({ clpId, token }) {
         }
     }
     console.log(dataset);
-    console.log(dataset.template);
+    // console.log(dataset.template);
     
 
     // -------------------------------------------------------- Get all email templates -------------------------------------------------------//
@@ -131,7 +131,7 @@ function JourneyIntegrity({ clpId, token }) {
     return (
         <>
             <div className='w-full overflow-scroll journeyTable'>
-                <table className='table table-responsive table-striped border p-2 mt-3'>
+                <table className='table table-responsive  border p-2 mt-3'>
                     <thead>
                         <tr>
                             <th className='text-center'>SlNo</th>

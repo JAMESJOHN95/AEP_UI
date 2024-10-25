@@ -2,6 +2,7 @@ import React from 'react'
 import Quest from '../Images/Questrade.svg'
 import documentimg from '../Images/document.png'
 import investing from '../Images/grow.avif'
+import MailTemplate from './MailTemplate'
 
 function FourDayNudgeSubmitted({dataset}) {
   return (
@@ -9,12 +10,11 @@ function FourDayNudgeSubmitted({dataset}) {
     <div>
         {dataset.template &&  (
            <div 
-           dangerouslySetInnerHTML={{__html:dataset.template}}/>
+           dangerouslySetInnerHTML={{_html:dataset.template}}/>
         )
-
         }
     </div>
-    {/* <div>
+    <div>
         <div className='templateimg'>
             <img className='questlogo' src={Quest} alt="" />
         </div>
@@ -37,7 +37,7 @@ function FourDayNudgeSubmitted({dataset}) {
             <p className='ms-2'>Start Investing For Your Future</p>
         </div>
         <button className='btn btn-success mt-2 ms-3'> Finish Your Account</button>
-    </div> */}
+    </div>
     </>
   )
 }
